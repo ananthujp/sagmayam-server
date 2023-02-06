@@ -25,7 +25,7 @@ const sendMail = (email, code) => {
 app.get("/send", (req, res) => {
   sendMail(req.query.email, req.query.code);
   //localhost:3000/send?code=2605&email=ananthujp@gmail.com
-  res.send("Success");
+  res.send(process.env.GMPASS);
 });
 
 app.use(express.static("public"));
