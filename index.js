@@ -15,17 +15,17 @@ const client = nodemailer.createTransport({
 
 const sendMail = (email, code) => {
   client.sendMail({
-    from: "sagmayam@gmail.com",
+    from: '"Sagmayam | IIT Gandhinagar" <sagmayam@gmail.com>',
     to: email,
-    subject: "Verification code",
-    text: "Your verification code is :" + code,
+    subject: "[Onam Food Coupon]",
+    html: "<b>Hello world?</b>",
   });
 };
 
 app.get("/send", (req, res) => {
   sendMail(req.query.email, req.query.code);
   //localhost:3000/send?code=2605&email=ananthujp@gmail.com
-  res.send(process.env.GMPASS);
+  res.send("Done");
 });
 
 app.use(express.static("public"));
