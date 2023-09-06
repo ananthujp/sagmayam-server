@@ -23,6 +23,7 @@ const sendMail = (email, code) => {
 };
 
 app.get("/send", (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
   sendMail(req.query.email, req.query.code);
   //localhost:3000/send?code=2605&email=ananthujp@gmail.com
   res.send("Done");
