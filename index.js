@@ -29,6 +29,11 @@ app.get("/send", (req, res) => {
   res.send("Done");
 });
 
+app.get("/check", (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.send("Server is live!");
+});
+
 app.use(express.static("public"));
 app.get("/", (req, res) => {
   res.sendFile("index.html", { root: path.join(__dirname, "public") });
