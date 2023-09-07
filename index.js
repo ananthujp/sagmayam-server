@@ -37,6 +37,7 @@ app.get("/send", (req, res) => {
   res.send("Done");
 });
 app.get("/send_fac", (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
   sendMailFac(req.query.email, req.query.code, req.query.name);
   //localhost:3000/send?code=2605&email=ananthujp@gmail.com
   res.send("Done");
